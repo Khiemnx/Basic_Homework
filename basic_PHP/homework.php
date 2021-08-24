@@ -35,6 +35,7 @@ echo factorialOfNumber(10)."<br>";
 //--------------------Homework 3------------------------
 
 function check_PrimeNumber($inputNumber){
+    if($inputNumber < 2) return false;
     if($inputNumber > 2) {
         for($i = 2 ; $i < $inputNumber/2 ; $i++) {
             if($inputNumber%$i==0) return false;
