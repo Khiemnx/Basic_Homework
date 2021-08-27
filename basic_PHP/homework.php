@@ -2,13 +2,13 @@
 //--------------------Homework 1------------------------
 
 $sum = 0;
-for($i = 0 ; $i <= 50 ; $i++){
-    if($i % 2 == 1) {
+for ($i = 0 ; $i <= 50 ; $i++) {
+    if ($i % 2 == 1) {
         $sum += $i;
     }
 }
 
-echo "the sum of the odd numbers between 0 to 50: ".$sum."<br>";
+echo "the sum of the odd numbers between 0 to 50: " . $sum . "<br>";
 
 ///////
 
@@ -23,47 +23,48 @@ function factorialOfNumber($n)
     return $result;
 }
 
-echo factorialOfNumber(10)."<br>";
+echo factorialOfNumber(10) . "<br>";
 
 //////
 
 //--------------------Homework 3------------------------
 
-function check_PrimeNumber($inputNumber){
-    if($inputNumber < 2) {
+function isPrimeNumber($inputNumber)
+{
+    if ($inputNumber < 2) {
         return false;
     }
-    if($inputNumber > 2) {
-        if($inputNumber % 2 == 0) {
+    if ($inputNumber === 2) {
+        return true;
+    }
+    if ($inputNumber % 2 == 0) {
+        return false;
+    }
+    for ($i = 3; $i < $inputNumber / 2; $i += 2) {
+        if ($inputNumber % $i == 0) {
             return false;
-        } 
-        else {
-            for($i = 3 ; $i < $inputNumber / 2 ; $i += 2) {
-                if($inputNumber % $i == 0 ) {
-                    return false;
-                }
-            }
         }
     }
     return true;
-};
+}
 
 ////////
 
 //--------------------Homework 4------------------------
 //Use function from Homework 3
 
-function PrimeNumber_inRange($n) {
+function getPrimeNumberInRange($n) 
+{
     $arr = array();
-    while($n > 1) {
-        if(check_PrimeNumber($n)) {
+    while ($n > 1) {
+        if (isPrimeNumber($n)) {
             array_push($arr, $n);
-        };
+        }
         $n--;
     }
     return $arr;
 }
 
-var_dump(PrimeNumber_inRange(100));
+var_dump(getPrimeNumberInRange(100));
 
 /////////
