@@ -12,18 +12,18 @@
     }
     class rectangle extends shape {
         public function area() {
-            return ($this->width*$this->height);
+            return ($this->width * $this->height);
         }
     }
     class triangle extends shape {
         public function area() {
-            return ($this->width*$this->height*1/2);
+            return ($this->width * $this->height * 1 / 2);
         }
     }
-    $triangle = new triangle(5.5,2.2);
-    $retangle = new rectangle(6.5,4.0);
-    echo "The area of trigangle: ".$triangle->area()."<br>";
-    echo "The area of retangle: ".$retangle->area()."<br>";
+    $triangle = new triangle(5.5, 2.2);
+    $rectangle = new rectangle(6.5 ,4.0);
+    echo "The area of triangle: " . $triangle->area() . "<br>";
+    echo "The area of rectangle: " . $rectangle->area() . "<br>";
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -69,23 +69,22 @@
         {
           foreach ($this->recipients as $recipient) {
             $result = mail($recipient, $this->subject, $this->body, "From: {$this->sender}\r\n");
-            echo "<br>"."---SendGrid successfully sent to {$recipient}\n";
-            echo "<br>"."Sender: $this->sender\n";
-            echo "<br>"."Subject: $this->subject\n";
-            echo "<br>"."Content: $this->body\n";
+            echo "<br>" . "---SendGrid successfully sent to {$recipient}\n";
+            echo "<br>" . "Sender: $this->sender\n";
+            echo "<br>" . "Subject: $this->subject\n";
+            echo "<br>" . "Content: $this->body\n";
           }
         }
     }
-      
     class MailChimp extends Emailer {
         public function sendEmail()
         {
           foreach ($this->recipients as $recipient) {
             $result = mail($recipient, $this->subject, $this->body, "From: {$this->sender}\r\n");
-            echo "<br>"."---MailChimp successfully sent to {$recipient}\n";
-            echo "<br>"."Sender: $this->sender\n";
-            echo "<br>"."Subject: $this->subject\n";
-            echo "<br>"."Content: $this->body\n";
+            echo "<br>" . "---MailChimp successfully sent to {$recipient}\n";
+            echo "<br>" . "Sender: $this->sender\n";
+            echo "<br>" . "Subject: $this->subject\n";
+            echo "<br>" . "Content: $this->body\n";
           }
         }
     }
@@ -95,8 +94,6 @@
     ->setSubject("welcome my friend!")
     ->setBody("Hi Name, How are you?")
     ->sendEmail();
-
-
     // MailChimp
     $mcEmailer = new MailChimp("khiemnx@pascaliaasia.com");
     $mcEmailer->addRecipients("khiemkthp@gmail.com")
