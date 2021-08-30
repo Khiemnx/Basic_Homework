@@ -1,4 +1,5 @@
 <?php 
+
 //--------------------Homework 1------------------------
 
 $sum = 0;
@@ -53,18 +54,17 @@ function isPrimeNumber($inputNumber)
 //--------------------Homework 4------------------------
 //Use function from Homework 3
 
-function getPrimeNumberInRange($n) 
+function getPrimeNumbers($n) 
 {
-    $arr = array();
-    while ($n > 1) {
-        if (isPrimeNumber($n)) {
-            array_push($arr, $n);
+    $primeNumbers = array();
+    for ($i = $n; $i > 1 ; $i--) {
+        if (isPrimeNumber($i)) {
+            array_push($primeNumbers, $i);
         }
-        $n--;
     }
-    return $arr;
+    return $primeNumbers;
 }
 
-var_dump(getPrimeNumberInRange(100));
+var_dump(getPrimeNumbers(100));
 
 /////////
