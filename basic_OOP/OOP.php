@@ -9,7 +9,7 @@
             $this->width = $width;
             $this->height = $height;
         }
-        protected function area() {
+        abstract protected function area() {
           
         }
     }
