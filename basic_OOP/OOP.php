@@ -1,7 +1,7 @@
 <?php 
 
     //----------------------------------------Homework1----------------------------------
-    class shape {
+    abstract class Shape {
         protected $width;
         protected $height;
 
@@ -9,19 +9,22 @@
             $this->width = $width;
             $this->height = $height;
         }
-    }
-    class rectangle extends shape {
-        public function area() {
-            return ($this->width * $this->height);
+        protected function area() {
+          
         }
     }
-    class triangle extends shape {
+    class Rectangle extends Shape {
         public function area() {
-            return ($this->width * $this->height * 1 / 2);
+            return $this->width * $this->height;
         }
     }
-    $triangle = new triangle(5.5, 2.2);
-    $rectangle = new rectangle(6.5 ,4.0);
+    class Triangle extends Shape {
+        public function area() {
+            return (($this->width * $this->height) / 2);
+        }
+    }
+    $triangle = new Triangle(5.5, 2.2);
+    $rectangle = new Rectangle(6.5 ,4.0);
     echo "The area of triangle: " . $triangle->area() . "<br>";
     echo "The area of rectangle: " . $rectangle->area() . "<br>";
 
