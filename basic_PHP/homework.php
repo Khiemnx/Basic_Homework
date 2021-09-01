@@ -57,14 +57,16 @@ function isPrimeNumber($inputNumber)
 function getPrimeNumbers($n) 
 {
     $primeNumbers = array();
-    for ($i = $n; $i > 1 ; $i--) {
+    for ($i = 0; $i < $n ; $i++) {
         if (isPrimeNumber($i)) {
             array_push($primeNumbers, $i);
         }
     }
     return $primeNumbers;
 }
-
-var_dump(getPrimeNumbers(100));
+$result = getPrimeNumbers(100);
+foreach ($result as $x) {
+    echo $x . "<br>";
+}
 
 /////////
