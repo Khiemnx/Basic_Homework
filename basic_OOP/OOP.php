@@ -9,9 +9,7 @@
             $this->width = $width;
             $this->height = $height;
         }
-        abstract protected function area() {
-          
-        }
+        abstract protected function area();
     }
     class Rectangle extends Shape {
         public function area() {
