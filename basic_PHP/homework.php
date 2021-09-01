@@ -64,9 +64,9 @@ function getPrimeNumbers($n)
     }
     return $primeNumbers;
 }
-$result = getPrimeNumbers(100);
-foreach ($result as $x) {
-    echo $x . "<br>";
+$primeNumbers = getPrimeNumbers(100);
+foreach ($primeNumbers as $primeNumber) {
+    echo $primeNumber . "<br>";
 }
 
 /////////
