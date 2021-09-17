@@ -2,28 +2,64 @@
     //------------------------------HOMEWORK 1----------------------------------
 
     class SimpleArray {
+        /** @var array */
         public $arr;
+
+        /**
+        * constructor
+        * @param array $arr
+        */
         public function __construct($arr)
         {
             $this->arr = $arr;
         }
-        public function sum() {
+
+        /**
+        * calculate the sum of elements in array
+        * @return int
+        */
+        public function sum() 
+        {
             return array_sum($this->arr);
         }
-        public function average() {
+
+        /**
+        * calculate the average of elements in array
+        * @return float
+        */
+        public function average() 
+        {
             return $this->sum() / count($this->arr);
         }
-        public function min() {
+
+        /**
+        * calculate the min of elements in array
+        * @return int
+        */
+        public function min() 
+        {
             $cpyArr = $this->arr;
             sort($cpyArr);
             return $cpyArr[0];
         }
-        public function max() { 
+
+        /**
+        * calculate the max of elements in array
+        * @return int
+        */
+        public function max() 
+        { 
             $cpyArr = $this->arr;
             rsort($cpyArr);
             return $cpyArr[0];
         }
-        public function output() {
+
+        /**
+        * print the average, sum, min and max of elements in array
+        * @return void
+        */
+        public function output() 
+        {
             echo "<br>-sum: " . $this->sum()
             . "<br>-average: " . $this->average() 
             . "<br>-min: " . $this->min() 
@@ -56,14 +92,18 @@
     //------------------------------HOMEWORK 3-----------------------------------
     
     class TwoDArray extends SimpleArray {
+        /** @var int */
         public $row;
+        /** @var int */
         public $col;
+        
         public function __construct($arr)
         {
             $this->arr = $arr;
             $this->row = count($arr);
             $this->col = count($arr[0]);
         }
+
         public function sum()
         {
             $sum = 0;
@@ -72,10 +112,12 @@
             }
             return $sum;
         }
+
         public function average()
         {
             return $this->sum() / ($this->row * $this->col);
         }
+
         public function min()
         {
             $minEachRow = array();
@@ -86,6 +128,7 @@
             sort($minEachRow);
             return $minEachRow[0];
         }
+
         public function max()
         {
             $maxEachRow = array();
