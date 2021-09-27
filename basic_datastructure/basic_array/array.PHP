@@ -15,55 +15,21 @@
         }
 
         /**
-        * calculate the sum of elements in array
-        * @return int
-        */
-        public function sum() 
-        {
-            return array_sum($this->arr);
-        }
-
-        /**
-        * calculate the average of elements in array
-        * @return float
-        */
-        public function average() 
-        {
-            return $this->sum() / count($this->arr);
-        }
-
-        /**
-        * calculate the min of elements in array
-        * @return int
-        */
-        public function min() 
-        {
-            $cpyArr = $this->arr;
-            sort($cpyArr);
-            return $cpyArr[0];
-        }
-
-        /**
-        * calculate the max of elements in array
-        * @return int
-        */
-        public function max() 
-        { 
-            $cpyArr = $this->arr;
-            rsort($cpyArr);
-            return $cpyArr[0];
-        }
-
-        /**
         * print the average, sum, min and max of elements in array
         * @return void
         */
         public function output() 
         {
-            echo "<br>-sum: " . $this->sum()
-            . "<br>-average: " . $this->average() 
-            . "<br>-min: " . $this->min() 
-            . "<br>-max: " . $this->max() . "<br>";
+            $cpyArr = $this->arr;
+            sort($cpyArr);
+            $sum = array_sum($cpyArr);
+            $countArr = count($cpyArr);
+            $average = $sum / $countArr;
+
+            echo "<br>-sum: " . $sum
+            . "<br>-average: " . $average 
+            . "<br>-min: " . $cpyArr[0] 
+            . "<br>-max: " . $cpyArr[$countArr - 1] . "<br>";
         }
     }
 
@@ -80,10 +46,10 @@
 
     $arrA = array(1, 2, 3, 4, 5);
     $arrB = array(4, 5, 3, 2, 10);
-    $arrC = array_map(function () 
-    {
-        return array_sum(func_get_args());
-    }, $arrA, $arrB);
+    $arrC = array();
+    for ($i = 0; $i < count($arrA); $i++) {
+        array_push($arrC, $arrA[$i] + $arrB[$i]);
+    }
     var_dump($arrC);
     echo "<br><br>";
     
@@ -91,56 +57,24 @@
 
     //------------------------------HOMEWORK 3-----------------------------------
     
-    class TwoDArray extends SimpleArray {
-        /** @var int */
-        public $row;
-        /** @var int */
-        public $col;
-        
+    class TwoDArray extends SimpleArray {     
+
         public function __construct($arr)
         {
             $this->arr = $arr;
-            $this->row = count($arr);
-            $this->col = count($arr[0]);
         }
 
-        public function sum()
+        public function output()
         {
-            $sum = 0;
-            foreach ($this->arr as $x) {
-                $sum += array_sum($x);
+            $simpleArr = array();
+            foreach ($this->arr as $element) {
+                $simpleArr = array_merge($simpleArr, $element);
             }
-            return $sum;
-        }
-
-        public function average()
-        {
-            return $this->sum() / ($this->row * $this->col);
-        }
-
-        public function min()
-        {
-            $minEachRow = array();
-            foreach ($this->arr as $row) {
-                sort($row);
-                array_push($minEachRow, $row[0]);
-            }
-            sort($minEachRow);
-            return $minEachRow[0];
-        }
-
-        public function max()
-        {
-            $maxEachRow = array();
-            foreach ($this->arr as $row) {
-                rsort($row);
-                array_push($maxEachRow, $row[0]);
-            }
-            rsort($maxEachRow);
-            return $maxEachRow[0];
+            $this->arr = $simpleArr;
+            parent::output();
         }
     }
-
+ 
     $arrayNxM = array(
         array(5, 12, 17, 9, 13),
         array(13, 4, 8, 14, 1),
