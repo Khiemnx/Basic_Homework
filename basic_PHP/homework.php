@@ -18,7 +18,7 @@ echo "the sum of the odd numbers between 0 to 50: " . $sum . "<br>";
 function factorialOfNumber($n)
 {
     $result = 1;
-    for($i = 1; $i < $n + 1; $i++) {
+    for ($i = 1; $i < $n + 1; $i++) {
         $result *= $i;
     }
     return $result;
